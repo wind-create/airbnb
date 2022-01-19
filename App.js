@@ -6,8 +6,9 @@ import { StyleSheet, Image } from 'react-native';
 import { Ionicons } from 'react-native-vector-icons/Ionicons';
 import Gate from './src/components/Gate';
 import * as font from "expo-font"
-import store from './src/redux/store'
+import store, { persistor } from './src/redux/store'
 import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
 
 
 
@@ -38,7 +39,10 @@ export default function App() {
 
   return isReady ? (
     <Provider store={store}>
-      <Gate />
+      <PersistGate persistor={persistor}>
+        <Gate />
+      </PersistGate>
+
     </Provider>
 
   ) : (
