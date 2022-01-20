@@ -3,14 +3,12 @@ import { Asset } from 'expo-asset';
 import React, { useState } from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Image } from 'react-native';
-import { Ionicons } from 'react-native-vector-icons/Ionicons';
-import Gate from './src/components/Gate';
+import { Ionicons } from "@expo/vector-icons";
+import Gate from "./components/Gate";
 import * as Font from "expo-font"
-import store, { persistor } from './src/redux/store'
+import store, { persistor } from "./redux/store";
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
-
-
 
 const cacheImages = images => images.map(image => {
   if (typeof image === "string") {
@@ -53,7 +51,3 @@ export default function App() {
     />
   );
 }
-
-const styles = StyleSheet.create({
-
-});

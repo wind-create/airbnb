@@ -1,7 +1,7 @@
-import { Ionicons } from 'react-native-vector-icons/Ionicons';
 import React from "react";
 import styled from "styled-components/native";
 import { Platform } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 const isAndroid = Platform.OS === "android";
 
@@ -10,7 +10,7 @@ const Container = styled.View`
 `;
 
 export default () => (
-    <Container>
-        <Ionicons name={isAndroid ? "md-arrow-down" : "ios-arrow-down"} size={28} />
-    </Container>
+  <Container>
+    <Ionicons name={isAndroid ? "md-arrow-down" : "ios-arrow-down"} size={28} />
+  </Container>
 );
