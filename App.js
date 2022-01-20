@@ -18,7 +18,7 @@ const cacheImages = images => images.map(image => {
   }
 })
 
-const cacheFonts = fonts => fonts.map(font => FontFace.loadAsync(font))
+const cacheFonts = fonts => fonts.map(font => Font.loadAsync(font))
 
 export default function App() {
 
