@@ -4,8 +4,8 @@ import styled from "styled-components/native";
 import Btn from "../../components/Auth/Btn";
 import Input from "../../components/Auth/Input";
 import DismissKeyboard from "../../components/DismissKeyboard";
-import { isEmail } from '../../utils';
-import api from '../../api';
+import { isEmail } from "../../utils";
+import api from "../../api";
 
 const Container = styled.View`
   flex: 1;
@@ -30,11 +30,11 @@ export default ({ navigation: { navigate } }) => {
       email === "" ||
       password === ""
     ) {
-      alert("semua data diperlukan.");
+      alert("All fields are required.");
       return false;
     }
     if (!isEmail(email)) {
-      alert("tolong isi email dengan benar.");
+      alert("Please add a valid email.");
       return false;
     }
     return true;
@@ -52,12 +52,12 @@ export default ({ navigation: { navigate } }) => {
         username: email,
         password
       });
-      if (state === 201) {
-        alert("Pendaftaran berhasil. Silakan Sign in.");
+      if (status === 201) {
+        alert("Account created. Sign in, please.");
         navigate("SignIn", { email, password });
       }
     } catch (e) {
-      alert("Email sudah terdaftar!!");
+      alert("The email is taken");
     } finally {
       setLoading(false);
     }
@@ -83,7 +83,7 @@ export default ({ navigation: { navigate } }) => {
             <Input
               keyboardType={"email-address"}
               value={email}
-              placeholder="email"
+              placeholder="Email"
               ke
               autoCapitalize="none"
               stateFn={setEmail}

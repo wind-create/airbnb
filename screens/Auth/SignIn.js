@@ -1,17 +1,12 @@
 import React, { useState } from "react";
-import {
-  StatusBar,
-  KeyboardAvoidingView,
-} from "react-native";
+import { StatusBar, KeyboardAvoidingView } from "react-native";
 import styled from "styled-components/native";
 import Btn from "../../components/Auth/Btn";
 import Input from "../../components/Auth/Input";
 import DismissKeyboard from "../../components/DismissKeyboard";
-import { isEmail } from '../../utils';
-import { useDispatch } from 'react-redux';
-import { userLogin } from '../../redux/usersSlice';
-
-
+import { isEmail } from "../../utils";
+import { useDispatch } from "react-redux";
+import { userLogin } from "../../redux/usersSlice";
 
 const Container = styled.View`
   flex: 1;
@@ -29,11 +24,11 @@ export default ({ route: { params } }) => {
   const [password, setPassword] = useState(params?.password);
   const isFormValid = () => {
     if (email === "" || password === "") {
-      alert("semua data diperlukan.");
+      alert("All fields are required.");
       return false;
     }
     if (!isEmail(email)) {
-      alert("Email salah");
+      alert("Email is invalid");
       return false;
     }
     return true;
@@ -58,7 +53,7 @@ export default ({ route: { params } }) => {
             <Input
               value={email}
               placeholder="Email"
-              keyboardType="Email-address"
+              keyboardType="email-address"
               autoCapitalize="none"
               stateFn={setEmail}
             />

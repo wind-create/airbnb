@@ -30,7 +30,8 @@ export const userLogin = form => async dispatch => {
       dispatch(logIn({ token }));
     }
   } catch (e) {
-    alert("username salah / password salah !!")
+    alert("Wrong user/password");
   }
 };
+
 export default userSlice.reducer;
