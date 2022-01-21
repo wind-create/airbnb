@@ -11,7 +11,7 @@ export default () => {
   const dispatch = useDispatch();
   return (
     <NavigationContainer>
-      {isLoggedIn ? <Main /> : <Main />}
+      {isLoggedIn ? <Main /> : <Auth />}
     </NavigationContainer>
   );
 };
