@@ -5,9 +5,6 @@ import Explore from "../screens/Main/Explore";
 import Saved from "../screens/Main/Saved";
 import Setting from "../screens/Main/Setting";
 import Profile from "../screens/Main/Profile";
-import colors from "../utils/colors";
-import utils from "../utils";
-import { View } from "react-native";
 
 const Main = createMaterialBottomTabNavigator();
 
