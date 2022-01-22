@@ -3,15 +3,15 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import { Ionicons } from "@expo/vector-icons";
 import Explore from "../screens/Main/Explore";
 import Saved from "../screens/Main/Saved";
-import MapScreen from "../screens/Main/Map";
+import Setting from "../screens/Main/Setting";
 import Profile from "../screens/Main/Profile";
-import colors from "../colors";
+import colors from "../utils/colors";
 import utils from "../utils";
 import { View } from "react-native";
 
 const Main = createMaterialBottomTabNavigator();
 
-export default () => (
+const Router = () => (
     <Main.Navigator
         tabBarOptions={{
             activeTintColor: colors.red,
@@ -31,10 +31,10 @@ export default () => (
                     iconName += "search";
                 } else if (route.name === "Saved") {
                     iconName += "heart";
-                } else if (route.name === "Map") {
-                    iconName += "map";
                 } else if (route.name === "Profile") {
                     iconName += "person";
+                } else if (route.name === "Setting") {
+                    iconName += "settings";
                 }
                 return (
                     <Ionicons
@@ -48,7 +48,9 @@ export default () => (
     >
         <Main.Screen name="Explore" component={Explore}></Main.Screen>
         <Main.Screen name="Saved" component={Saved}></Main.Screen>
-        <Main.Screen name="Map" component={MapScreen}></Main.Screen>
         <Main.Screen name="Profile" component={Profile}></Main.Screen>
+        <Main.Screen name="Setting" component={Setting}></Main.Screen>
     </Main.Navigator>
 );
+
+export default Router;
