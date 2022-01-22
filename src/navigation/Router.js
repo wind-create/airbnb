@@ -13,43 +13,49 @@ const Main = createMaterialBottomTabNavigator();
 
 const Router = () => (
     <Main.Navigator
-        tabBarOptions={{
-            activeTintColor: colors.red,
-            tabStyle: {
-                paddingTop: 10
-            },
-            labelStyle: {
-                textTransform: "uppercase",
-                fontWeight: "600"
-            }
-        }}
         screenOptions={({ route }) => ({
             tabBarIcon: ({ focused }) => {
-                const isAndroid = utils.isAndroid();
-                let iconName = `${isAndroid ? "md-" : "ios-"}`;
+                let iconName;
                 if (route.name === "Explore") {
-                    iconName += "search";
+                    iconName = "search";
                 } else if (route.name === "Saved") {
-                    iconName += "heart";
+                    iconName = "heart";
                 } else if (route.name === "Profile") {
-                    iconName += "person";
+                    iconName = "person";
                 } else if (route.name === "Setting") {
-                    iconName += "settings";
+                    iconName = "settings";
                 }
                 return (
                     <Ionicons
                         name={iconName}
-                        size={24}
-                        color={focused ? colors.red : "grey"}
+                        size={focused ? 24 : 20}
+                        color={focused ? 'red' : '#555'}
                     />
                 );
             }
         })}
+
+        tabBarOptions={{
+            activeTintColor: 'red',
+            inactiveTintColor: '#555',
+            activeBackgroundColor: '#000000',
+            inactiveBackgroundColor: '#999',
+            showLabel: true,
+            labelStyle: { fontSize: 14 },
+            showIcon: true,
+
+
+        }}
+        activeColor='#000000'
+        inactiveColor='#555'
+        barStyle={{
+            backgroundColor: '#ffffff'
+        }}
     >
-        <Main.Screen name="Explore" component={Explore}></Main.Screen>
-        <Main.Screen name="Saved" component={Saved}></Main.Screen>
-        <Main.Screen name="Profile" component={Profile}></Main.Screen>
-        <Main.Screen name="Setting" component={Setting}></Main.Screen>
+        <Main.Screen name="Explore" component={Explore} />
+        <Main.Screen name="Saved" component={Saved} />
+        <Main.Screen name="Profile" component={Profile} />
+        <Main.Screen name="Setting" component={Setting} />
     </Main.Navigator>
 );
 
