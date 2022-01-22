@@ -61,6 +61,9 @@ const Explore = () => {
                   <Card imageUri={require('../../../assets/home.jpg')}
                     name="contoh hotel"
                   />
+                  <Card imageUri={require('../../../assets/home.jpg')}
+                    name="contoh hotel"
+                  />
                 </ScrollView>
               </View>
             </View>
