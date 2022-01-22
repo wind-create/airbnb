@@ -69,17 +69,26 @@ const Explore = () => {
               <Text style={{ fontSize: 24, fontWeight: '700' }}>
                 POPULAR DESTINATIONS
               </Text>
-              <View style={{ width: width - 40, height: 200, marginTop: 20 }}>
-                <Image
-                  style={{ flex: 1, height: null, width: null, resizeMode: 'cover', borderRadius: 5, borderWidth: 1, borderColor: '#dddddd' }}
-                  source={require('../../../assets/home.jpg')}
-                />
+
+              <View style={{ width: width - 40, height: 200, marginTop: 20, borderWidth: 0.5, borderColor: '#dddddd' }}>
+                <View style={{ flex: 2 }}>
+                  <Image source={require('../../../assets/home.jpg')}
+                    style={{ flex: 1, height: null, width: null, resizeMode: 'cover', borderRadius: 5, borderWidth: 1, borderColor: '#dddddd' }}
+                  />
+                </View>
+                <View style={{ flex: 1, paddingLeft: 10, paddingTop: 10 }}>
+                  <Text>Hotel</Text>
+                </View>
               </View>
-              <View style={{ width: width - 40, height: 200, marginTop: 20 }}>
-                <Image
-                  style={{ flex: 1, height: null, width: null, resizeMode: 'cover', borderRadius: 5, borderWidth: 1, borderColor: '#dddddd' }}
-                  source={require('../../../assets/home.jpg')}
-                />
+              <View style={{ width: width - 40, height: 200, marginTop: 20, borderWidth: 0.5, borderColor: '#dddddd' }}>
+                <View style={{ flex: 2 }}>
+                  <Image source={require('../../../assets/home.jpg')}
+                    style={{ flex: 1, height: null, width: null, resizeMode: 'cover', borderRadius: 5, borderWidth: 1, borderColor: '#dddddd' }}
+                  />
+                </View>
+                <View style={{ flex: 1, paddingLeft: 10, paddingTop: 10 }}>
+                  <Text>Contoh Hotel</Text>
+                </View>
               </View>
 
             </View>
