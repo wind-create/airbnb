@@ -5,11 +5,17 @@ import {
   StyleSheet,
   SafeAreaView,
   TextInput,
+  ScrollView,
+  TouchableOpacity,
   Platform,
-  StatusBar
+  StatusBar,
+  TouchableHighlight,
+  Dimensions,
+  Image
 } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons'
-
+import Card from '../../components/Card';
+const { height, width } = Dimensions.get('window')
 const Explore = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -32,9 +38,57 @@ const Explore = () => {
             />
           </View>
         </View>
+        <ScrollView
+          scrollEventThrottle={16}
+        >
+          <View style={{ flex: 1, backgroundColor: 'white', paddingTop: 20 }}>
+            <View style={{ flex: 1, backgroundColor: 'white', paddingTop: 20 }}>
+              <Text style={{ fontSize: 24, fontWeight: '700', paddingHorizontal: 20 }}>
+                Top Destination
+              </Text>
+
+              <View style={{ height: 130, marginTop: 20 }}>
+                <ScrollView
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                >
+                  <Card imageUri={require('../../../assets/home.jpg')}
+                    name="Home"
+                  />
+                  <Card imageUri={require('../../../assets/home.jpg')}
+                    name="contoh hotel"
+                  />
+                  <Card imageUri={require('../../../assets/home.jpg')}
+                    name="contoh hotel"
+                  />
+                </ScrollView>
+              </View>
+            </View>
+
+            <View style={{ marginTop: 40, paddingHorizontal: 20 }}>
+              <Text style={{ fontSize: 24, fontWeight: '700' }}>
+                POPULAR DESTINATIONS
+              </Text>
+              <View style={{ width: width - 40, height: 200, marginTop: 20 }}>
+                <Image
+                  style={{ flex: 1, height: null, width: null, resizeMode: 'cover', borderRadius: 5, borderWidth: 1, borderColor: '#dddddd' }}
+                  source={require('../../../assets/home.jpg')}
+                />
+              </View>
+              <View style={{ width: width - 40, height: 200, marginTop: 20 }}>
+                <Image
+                  style={{ flex: 1, height: null, width: null, resizeMode: 'cover', borderRadius: 5, borderWidth: 1, borderColor: '#dddddd' }}
+                  source={require('../../../assets/home.jpg')}
+                />
+              </View>
+
+            </View>
+          </View>
+        </ScrollView>
+
       </View>
     </SafeAreaView>
   )
 };
-
+const styles = StyleSheet.create({})
 export default Explore;
