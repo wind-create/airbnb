@@ -4,9 +4,9 @@ import Login from '../../components/organisms/login';
 
 const Profile = () => {
   return (
-    <View>
+    <>
       <Login />
-    </View>
+    </>
   )
 };
 

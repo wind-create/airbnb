@@ -1,59 +1,110 @@
 import React from "react";
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { Ionicons } from "@expo/vector-icons";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import Explore from "../screens/Main/Explore";
 import Saved from "../screens/Main/Saved";
 import Setting from "../screens/Main/Setting";
 import Profile from "../screens/Main/Profile";
 
-const Main = createMaterialBottomTabNavigator();
+const Tab = createMaterialBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
-const Router = () => (
-    <Main.Navigator
-        screenOptions={({ route }) => ({
-            tabBarIcon: ({ focused }) => {
-                let iconName;
-                if (route.name === "Explore") {
-                    iconName = "search";
-                } else if (route.name === "Saved") {
-                    iconName = "heart";
-                } else if (route.name === "Profile") {
-                    iconName = "person";
-                } else if (route.name === "Setting") {
-                    iconName = "settings";
-                }
-                return (
-                    <Ionicons
-                        name={iconName}
-                        size={focused ? 24 : 20}
-                        color={focused ? 'red' : '#555'}
-                    />
-                );
-            }
-        })}
+const Router = () => {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen
+                name="HomeScreen"
+                component={NavBar}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="Explore"
+                component={Explore}
+                options={{ headerShown: false }}
+            />
 
-        tabBarOptions={{
-            activeTintColor: 'red',
-            inactiveTintColor: '#555',
-            activeBackgroundColor: '#000000',
-            inactiveBackgroundColor: '#999',
-            showLabel: true,
-            labelStyle: { fontSize: 14 },
-            showIcon: true,
+            <Stack.Screen
+                name="Saved"
+                component={Saved}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="Profile"
+                component={Profile}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="Setting"
+                component={Setting}
+                options={{ headerShown: false }}
+            />
 
+        </Stack.Navigator>
 
-        }}
-        activeColor='#000000'
-        inactiveColor='#555'
-        barStyle={{
-            backgroundColor: '#ffffff'
-        }}
-    >
-        <Main.Screen name="Explore" component={Explore} />
-        <Main.Screen name="Saved" component={Saved} />
-        <Main.Screen name="Profile" component={Profile} />
-        <Main.Screen name="Setting" component={Setting} />
-    </Main.Navigator>
-);
+    )
+};
+
+export const NavBar = () => {
+
+    return (
+        <Tab.Navigator
+            tabBarOptions={{
+                activeTintColor: 'red',
+                inactiveTintColor: '#555',
+                activeBackgroundColor: '#000000',
+                inactiveBackgroundColor: '#999',
+                showLabel: true,
+                labelStyle: { fontSize: 14 },
+                showIcon: true,
+            }}
+            activeColor='red'
+            inactiveColor='#555'
+            barStyle={{
+                backgroundColor: '#ffffff'
+            }}>
+            <Tab.Screen
+                name="Search"
+                component={Explore}
+                options={{
+                    tabBarLabel: 'Explore',
+                    tabBarIcon: ({ color }) => (
+                        <Ionicons name="search" color={color} size={26} />
+                    ),
+                }}
+            />
+            <Tab.Screen
+                name="Saved"
+                component={Saved}
+                options={{
+                    tabBarLabel: 'Saved',
+                    tabBarIcon: ({ color }) => (
+                        <Ionicons name="heart" color={color} size={26} />
+                    ),
+                }}
+            />
+            <Tab.Screen
+                name="Profile"
+                component={Profile}
+                options={{
+                    tabBarLabel: 'Profile',
+                    tabBarIcon: ({ color }) => (
+                        <Ionicons name="person" color={color} size={26} />
+                    ),
+                }}
+            />
+            <Tab.Screen
+                name="Setting"
+                component={Setting}
+                options={{
+                    tabBarLabel: 'Setting',
+                    tabBarIcon: ({ color }) => (
+                        <Ionicons name="settings" color={color} size={26} />
+                    ),
+                }}
+            />
+        </Tab.Navigator>
+    )
+}
 
 export default Router;
