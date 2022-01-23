@@ -17,7 +17,6 @@ const Login = ({ setToken, setId }) => {
             try {
                 const response = await axios.post(
                     `https://express-airbnb-api.herokuapp.com/user/log_in`,
-                    // "http://localhost:3001/user/login",
                     { email, password }
                 )
                 console.log('login', response.data);

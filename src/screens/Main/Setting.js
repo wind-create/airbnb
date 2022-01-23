@@ -1,12 +1,17 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React from "react";
+import { Button, Text, View } from "react-native";
 
-const Setting = () => {
+export default function Setting({ setToken }) {
   return (
     <View>
-      <Text>Setting</Text>
-    </View>
-  )
-};
+      <Text>Hello Settings</Text>
 
-export default Setting;
+      <Button
+        title="Log Out"
+        onPress={() => {
+          setToken(null);
+        }}
+      />
+    </View>
+  );
+}
