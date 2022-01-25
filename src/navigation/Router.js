@@ -6,15 +6,21 @@ import Explore from "../screens/Main/Explore";
 import Saved from "../screens/Main/Saved";
 import Setting from "../screens/Main/Setting";
 import Profile from "../screens/Main/Profile";
+import Splash from "../screens/Main/Splash";
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 const Router = () => {
     return (
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName="Splash">
             <Stack.Screen
-                name="HomeScreen"
+                name="Splash"
+                component={Splash}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="NavBar"
                 component={NavBar}
                 options={{ headerShown: false }}
             />

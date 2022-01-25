@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { LogIn } from "../../../redux/User";
 import Button from "../../atom/button";
 
-const Login = ({ setToken, setId }) => {
+const Login = () => {
     const dispatch = useDispatch();
     const userData = useSelector((state) => state.user.userData);
     const [secure, setSecure] = useState(true)
@@ -20,7 +20,7 @@ const Login = ({ setToken, setId }) => {
     function handleLogin() {
         if (userData.email === email && userData.password === password) {
             dispatch(LogIn(true));
-            return navigation.navigate("Explore");
+            return navigation.navigate("Splash");
         } else {
             showAlert();
         }
