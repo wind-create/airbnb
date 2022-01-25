@@ -9,7 +9,7 @@ import Button from "../../atom/button";
 const Login = ({ setToken, setId }) => {
     const dispatch = useDispatch();
     const userData = useSelector((state) => state.user.userData);
-
+    const [secure, setSecure] = useState(true)
     const navigation = useNavigation();
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
@@ -39,6 +39,7 @@ const Login = ({ setToken, setId }) => {
                 />
                 <TextInput placeholder="Password"
                     placeholderTextColor="#E1E1E1"
+                    secureTextEntry={secure}
                     style={styles.textInput}
                     onChangeText={password => setPassword(password)}
                 />
