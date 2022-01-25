@@ -1,33 +1,28 @@
 import React, { useState } from "react";
-import { useNavigation } from "@react-navigation/core";
 import { Text, TextInput, View, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
+import { useDispatch, useSelector } from "react-redux";
+import { LogIn } from "../../../redux/User";
+import Button from "../../atom/button";
 
 const Login = ({ setToken, setId }) => {
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [data, setData] = useState()
-    const [secure, setSecure] = useState(true)
+    const dispatch = useDispatch();
+    const userData = useSelector((state) => state.user.userData);
+
     const navigation = useNavigation();
+    const [email, setEmail] = React.useState("");
+    const [password, setPassword] = React.useState("");
 
-    const onSubmit = async () => {
-        if (email && password) {
+    const showAlert = () => Alert.alert("Wrong email or password!");
 
-            try {
-                const response = await axios.post(
-                    `https://express-airbnb-api.herokuapp.com/user/log_in`,
-                    { email, password }
-                )
-                console.log('login', response.data);
-                setData(response.data)
-                setToken(response.data.token)
-                setId(response.data.id)
-            } catch (error) {
-                alert(error.response.data.error);
-            }
+
+    function handleLogin() {
+        if (userData.email === email && userData.password === password) {
+            dispatch(LogIn(true));
+            return navigation.navigate("Explore");
         } else {
-            alert('masih didevelop')
+            showAlert();
         }
     }
 
@@ -44,26 +39,15 @@ const Login = ({ setToken, setId }) => {
                 />
                 <TextInput placeholder="Password"
                     placeholderTextColor="#E1E1E1"
-                    secureTextEntry={secure}
                     style={styles.textInput}
                     onChangeText={password => setPassword(password)}
                 />
 
 
-                <TouchableOpacity
-                    style={styles.buttonSubmit}
-                    onPress={async () => {
-                        onSubmit()
-                    }}
-                >
-                    <Text style={styles.buttonText}>Login</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => {
-                        navigation.navigate("SignUp");
-                    }}
-                >
-                </TouchableOpacity>
+                <Button
+                    textButton="Login"
+                    onPress={handleLogin}
+                />
             </View>
         </KeyboardAwareScrollView>
     );
@@ -94,31 +78,18 @@ const styles = StyleSheet.create({
         height: 150,
         marginBottom: 30,
     },
-    buttonSubmit: {
-        width: 190,
-        height: 65,
-        borderRadius: 50,
-        backgroundColor: "white",
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: 50
-    },
-    buttonText: {
-        color: "#F35960",
-        fontSize: 24
-    },
     Signup: {
         marginTop: 15,
         color: "white",
         textDecorationLine: "underline",
     },
     textInput: {
-        borderBottomColor: "white",
+        borderBottomColor: "black",
         borderBottomWidth: 1,
         width: 330,
         height: 45,
         marginBottom: 30,
-        color: "white",
+        color: "black",
         position: "relative",
     },
     eye: {
