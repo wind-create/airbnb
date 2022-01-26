@@ -8,6 +8,7 @@ import Search from '../../molecules/search';
 import TopDestinations from '../../molecules/topDestinations';
 import PopularDestinations from '../../molecules/popularDestinations';
 
+
 const SlideDestinations = () => {
     return (
         <View style={styles.body}>
