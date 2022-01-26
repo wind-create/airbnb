@@ -5,9 +5,9 @@ export const user = createSlice({
     name: "user",
     initialState: {
         userData: {
-            username: "willi",
-            email: "willi@gmail.com",
-            password: "willi123",
+            username: "user",
+            email: "user@gmail.com",
+            password: "12345",
             loggedIn: false,
             favourite: [],
             userProfile: {
