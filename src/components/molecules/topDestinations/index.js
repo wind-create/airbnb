@@ -21,7 +21,7 @@ const TopDestinations = ({ navigation }) => {
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
                 >
-                    {getDataHotel?.slice(1, 5).map((hotel) => (
+                    {getDataHotel?.slice(6, 10).map((hotel) => (
                         <Fragment key={hotel.hotelId}>
                             <Card hotel={hotel} />
                         </Fragment>

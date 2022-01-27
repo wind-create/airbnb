@@ -15,7 +15,7 @@ const index = () => {
             <Text style={styles.text}>
                 POPULAR DESTINATIONS
             </Text>
-            {getDataHotel?.slice(1, 5).map((hotel) => (
+            {getDataHotel?.slice(11, 15).map((hotel) => (
                 <Fragment key={hotel.hotelId}>
                     <CardLarge hotel={hotel} />
                 </Fragment>
