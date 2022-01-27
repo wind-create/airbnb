@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Card from '../../atom/card';
 import {
     View,
@@ -6,8 +6,10 @@ import {
     Text
 } from "react-native";
 import styles from './styles';
+import { useSelector } from "react-redux";
 
-const TopDestinations = () => {
+const TopDestinations = ({ navigation }) => {
+    const getDataHotel = useSelector((state) => state.hotel?.data);
     return (
         <View style={styles.body}>
             <Text style={styles.text}>
@@ -19,18 +21,13 @@ const TopDestinations = () => {
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
                 >
-                    <Card imageUri={require('../../../../assets/home.jpg')}
-                        name="Home"
-                    />
-                    <Card imageUri={require('../../../../assets/home.jpg')}
-                        name="contoh hotel"
-                    />
-                    <Card imageUri={require('../../../../assets/home.jpg')}
-                        name="contoh hotel"
-                    />
-                    <Card imageUri={require('../../../../assets/home.jpg')}
-                        name="contoh hotel"
-                    />
+                    {getDataHotel?.slice(1, 5).map((hotel) => (
+                        <Fragment key={hotel.hotelId}>
+                            <Card hotel={hotel} />
+                        </Fragment>
+                    ))}
+
+
                 </ScrollView>
             </View>
         </View>

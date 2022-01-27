@@ -4,9 +4,13 @@ import {
   SafeAreaView,
 } from "react-native";
 import SlideDestinations from '../../components/organisms/slideDestinations';
+import { fetchDataHotel } from '../../redux/Hotel';
+import { useDispatch } from "react-redux";
 
 
 const Explore = () => {
+  const dispatch = useDispatch();
+  dispatch(fetchDataHotel())
   return (
     <SafeAreaView style={styles.body}>
       <SlideDestinations />

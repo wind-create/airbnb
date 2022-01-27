@@ -7,17 +7,19 @@ import {
 import styles from './styles';
 
 
-const Card = (props) => {
+const Card = ({ navigaton, hotel }) => {
 
     return (
         <View style={styles.cardBody}>
             <View style={styles.imageCard}>
-                <Image source={props.imageUri}
+                <Image source={{
+                    uri: `${hotel?.images[0]?.url}`
+                }}
                     style={styles.image}
                 />
             </View>
             <View style={styles.text}>
-                <Text>{props.name}</Text>
+                <Text>{hotel?.name}</Text>
             </View>
         </View>
     );
