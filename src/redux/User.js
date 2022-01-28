@@ -4,27 +4,24 @@ import { createSlice } from "@reduxjs/toolkit";
 export const user = createSlice({
     name: "user",
     initialState: {
-        userData: {
+        user: {
             username: "user",
             email: "user@gmail.com",
             password: "12345",
             loggedIn: false,
             favourite: [],
-            userProfile: {
-                fullname: "Willi Nardo",
-                email: "user@gmail.com",
-            },
+            name: "Willi Nardo",
         },
     },
     reducers: {
         setFullname: (state, action) => {
-            state.userData.userProfile.fullname = action.payload;
+            state.user.name = action.payload;
         },
         setEmail: (state, action) => {
-            state.userData.userProfile.email = action.payload;
+            state.user.email = action.payload;
         },
         LogIn: (state, action) => {
-            state.userData.loggedIn = action.payload;
+            state.user.loggedIn = action.payload;
         },
 
     },
