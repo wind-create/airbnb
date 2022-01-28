@@ -11,8 +11,8 @@ export const user = createSlice({
             loggedIn: false,
             favourite: [],
             userProfile: {
-                fullname: null,
-                email: null,
+                fullname: "Willi Nardo",
+                email: "user@gmail.com",
             },
         },
     },

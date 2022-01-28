@@ -8,6 +8,7 @@ import Setting from "../screens/Main/Setting";
 import Profile from "../screens/Main/Profile";
 import Splash from "../screens/Main/Splash";
 import Detail from "../screens/Main/Detail";
+import SignIn from "../screens/Main/SignIn";
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -49,6 +50,11 @@ function Router() {
             <Stack.Screen
                 name="Detail"
                 component={Detail}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="SignIn"
+                component={SignIn}
                 options={{ headerShown: false }}
             />
 
