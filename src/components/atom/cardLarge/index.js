@@ -5,6 +5,7 @@ import {
     Image
 } from "react-native";
 import styles from './styles';
+import Ratings from '../ratings';
 
 
 const CardLarge = ({ navigaton, hotel }) => {
@@ -21,6 +22,7 @@ const CardLarge = ({ navigaton, hotel }) => {
             </View>
             <View style={styles.text}>
                 <Text>{hotel?.name}</Text>
+                <Ratings rating={hotel?.starRating} />
             </View>
         </View>
     );
