@@ -5,16 +5,15 @@ export const user = createSlice({
     name: "user",
     initialState: {
         user: {
+            name: "Willi Nardo",
             username: "user",
             email: "user@gmail.com",
             password: "12345",
             loggedIn: false,
-            favourite: [],
-            name: "Willi Nardo",
         },
     },
     reducers: {
-        setFullname: (state, action) => {
+        setname: (state, action) => {
             state.user.name = action.payload;
         },
         setEmail: (state, action) => {
@@ -28,7 +27,7 @@ export const user = createSlice({
 });
 
 export const {
-    setFullname,
+    setname,
     setEmail,
     LogIn,
 } = user.actions;
