@@ -4,6 +4,7 @@ import Button from '../../components/atom/button';
 import { useNavigation } from "@react-navigation/native";
 import { useSelector, useDispatch, } from "react-redux";
 import { LogIn } from "../../redux/User";
+import EditPRofile from "../../components/organisms/EditProfile";
 
 const Setting = () => {
   const user = useSelector((state) => state.user.user);
@@ -23,10 +24,7 @@ const Setting = () => {
     <View style={styles.screen}>
       {user.loggedIn ? (
         <>
-          <Button
-            textButton="Edit Profile"
-            onPress={Edit}
-          />
+          <EditPRofile />
           <Text style={styles.textStyle}>Or</Text>
           <Button
             textButton="Logout"
