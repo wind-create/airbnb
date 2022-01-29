@@ -13,7 +13,6 @@ import Button from '../../components/atom/button';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useDispatch, useSelector } from "react-redux";
 import { saved } from '../../redux/User'
-import { AntDesign } from "@expo/vector-icons";
 
 const Detail = ({ route, navigation }) => {
     const { hotel } = route.params;
