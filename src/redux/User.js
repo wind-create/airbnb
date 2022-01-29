@@ -6,10 +6,11 @@ export const user = createSlice({
     initialState: {
         user: {
             name: "Willi Nardo",
+            country: "Indonesia",
             username: "user",
-            email: "user@gmail.com",
+            email: "willi@gmail.com",
             password: "12345",
-            loggedIn: false,
+            loggedIn: true,
         },
     },
     reducers: {

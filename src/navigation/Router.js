@@ -9,6 +9,8 @@ import Profile from "../screens/Main/Profile";
 import Splash from "../screens/Main/Splash";
 import Detail from "../screens/Main/Detail";
 import SignIn from "../screens/Main/SignIn";
+import EditProfile from '../screens/Main/EditProfile';
+
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -55,6 +57,11 @@ function Router() {
             <Stack.Screen
                 name="SignIn"
                 component={SignIn}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="EditProfile"
+                component={EditProfile}
                 options={{ headerShown: false }}
             />
 
