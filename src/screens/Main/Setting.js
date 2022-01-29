@@ -16,6 +16,9 @@ const Setting = () => {
     dispatch(LogIn(false));
     return navigation.navigate("Splash");
   }
+  function SignIn() {
+    return navigation.navigate("SignIn");
+  }
   return (
     <View style={styles.screen}>
       {user.loggedIn ? (
@@ -31,7 +34,10 @@ const Setting = () => {
           />
         </>
       ) : (
-        <></>
+        <Button
+          textButton="Sign In"
+          onPress={SignIn}
+        />
       )
       }
     </View>
