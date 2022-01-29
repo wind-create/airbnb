@@ -10,9 +10,6 @@ const Setting = () => {
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
   const navigation = useNavigation();
-  function Edit() {
-    return navigation.navigate("EditProfile");
-  }
   function Logout() {
     dispatch(LogIn(false));
     return navigation.navigate("Splash");

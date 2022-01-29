@@ -11,9 +11,6 @@ const Profile = () => {
   function SignIn() {
     return navigation.navigate("SignIn");
   }
-  function Edit() {
-    return navigation.navigate("EditProfile");
-  }
   return (
     <View style={styles.screen}>
       {user.loggedIn ? (
@@ -35,10 +32,6 @@ const Profile = () => {
             <Text style={styles.textStyle}>{user.country}</Text>
           </View>
 
-          <Button
-            textButton="Edit Profile"
-            onPress={Edit}
-          />
         </>
       ) : (
         <Button
