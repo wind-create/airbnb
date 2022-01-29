@@ -12,7 +12,7 @@ import { useNavigation } from "@react-navigation/native";
 const Card = ({ hotel }) => {
     const navigation = useNavigation();
     function DetailNavigation() {
-        return navigation.navigate("Detail");
+        return navigation.navigate("Detail", { hotel });
 
     }
     return (
