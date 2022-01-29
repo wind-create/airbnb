@@ -1,15 +1,11 @@
 import React from 'react';
-import { View, Text, ScrollView, Fragment } from 'react-native';
+import { Text, ScrollView } from 'react-native';
 import { useSelector } from "react-redux";
 import CardLarge from '../../components/atom/cardLarge';
 
 const Saved = () => {
-  const user = useSelector(
-    (state) => state.user.user
-  );
-  const savedHotel = useSelector(
-    (state) => state.user.user.whishlist
-  );
+  const user = useSelector((state) => state.user.user);
+  const savedHotel = useSelector((state) => state.user.user.whishlist);
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
 
