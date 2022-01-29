@@ -7,7 +7,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Profile = () => {
   const user = useSelector((state) => state.user.user);
-
   const navigation = useNavigation();
   function SignIn() {
     return navigation.navigate("SignIn");
