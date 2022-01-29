@@ -6,13 +6,35 @@ import {
     StyleSheet,
     Text,
     View,
+    Pressable
 } from 'react-native';
 import Ratings from '../../components/atom/ratings';
 import Button from '../../components/atom/button';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useDispatch, useSelector } from "react-redux";
+import { saved } from '../../redux/User'
+import { AntDesign } from "@expo/vector-icons";
 
 const Detail = ({ route, navigation }) => {
     const { hotel } = route.params;
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.user.user);
+    const IconSaved = () => {
+        const result = user.whishlist.some(
+            (item) => item.hotel.hotelId === hotel.hotelId
+        );
+        if (result)
+            return (
+                <Icon name="bookmark" size={28} color="white" />
+            );
+        if (!result)
+            return (
+                <Icon name="bookmark-border" size={28} color="white" />
+            );
+    };
+    function SavedWhishlist() {
+        return dispatch(saved({ hotel }));
+    }
 
     return (
         <ScrollView
@@ -32,7 +54,12 @@ const Detail = ({ route, navigation }) => {
                         color="white"
                         onPress={navigation.goBack}
                     />
-                    <Icon name="bookmark-border" size={28} color="white" />
+
+                    {user.loggedIn && (
+                        <Pressable onPress={SavedWhishlist}>
+                            <IconSaved />
+                        </Pressable>
+                    )}
                 </View>
             </ImageBackground>
             <View>

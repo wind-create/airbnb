@@ -10,6 +10,7 @@ export const user = createSlice({
             email: "willi@gmail.com",
             password: "12345",
             loggedIn: true,
+            whishlist: [],
         },
     },
     reducers: {
@@ -25,13 +26,27 @@ export const user = createSlice({
         LogIn: (state, action) => {
             state.user.loggedIn = action.payload;
         },
-
+        saved: (state, action) => {
+            const FindHotel = state.user.whishlist.find(
+                (item) => item.hotel.hotelId === action.payload.hotel.hotelId
+            );
+            if (FindHotel) {
+                const savedHotel = state.user.whishlist.filter(
+                    (item) => item.hotel.hotelId !== FindHotel.hotel.hotelId
+                );
+                state.user.whishlist = savedHotel;
+            } else {
+                state.user.whishlist.push(action.payload);
+            }
+        },
     },
 });
 
 export const {
     setname,
     setEmail,
+    setCountry,
+    saved,
     LogIn,
 } = user.actions;
 
