@@ -34,6 +34,13 @@ const Detail = ({ route, navigation }) => {
     function SavedWhishlist() {
         return dispatch(saved({ hotel }));
     }
+    const Booking = () => {
+        if (user.loggedIn) {
+            return navigation.navigate("Booking", { hotel });
+        } else {
+            return navigation.navigate("Login");
+        }
+    };
 
     return (
         <ScrollView
@@ -124,7 +131,8 @@ const Detail = ({ route, navigation }) => {
                 </View>
                 <View style={style.btn}>
                     <Button
-                        textButton="Book"
+                        textButton="Booking"
+                        onPress={Booking}
                     />
                 </View>
             </View>

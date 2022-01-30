@@ -11,6 +11,7 @@ export const user = createSlice({
             password: "12345",
             loggedIn: true,
             whishlist: [],
+            booking: [],
         },
     },
     reducers: {
@@ -38,6 +39,9 @@ export const user = createSlice({
             } else {
                 state.user.whishlist.push(action.payload);
             }
+        },
+        bookingHotel: (state, action) => {
+            state.user.booking.push(action.payload);
         },
     },
 });

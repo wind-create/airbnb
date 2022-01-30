@@ -9,6 +9,7 @@ import Profile from "../screens/Main/Profile";
 import Splash from "../screens/Main/Splash";
 import Detail from "../screens/Main/Detail";
 import SignIn from "../screens/Main/SignIn";
+import Booking from "../screens/Main/Booking";
 
 
 const Tab = createMaterialBottomTabNavigator();
@@ -56,6 +57,11 @@ function Router() {
             <Stack.Screen
                 name="SignIn"
                 component={SignIn}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="Booking"
+                component={Booking}
                 options={{ headerShown: false }}
             />
 
