@@ -52,6 +52,7 @@ export const {
     setCountry,
     saved,
     LogIn,
+    bookingHotel,
 } = user.actions;
 
 export default user.reducer;
