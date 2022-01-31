@@ -1,46 +1,57 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
 import Button from '../../components/atom/button';
 import { useNavigation } from "@react-navigation/native";
 import { useSelector } from "react-redux";
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import CardLarge from '../../components/atom/cardLarge';
 
 const Profile = () => {
   const user = useSelector((state) => state.user.user);
+  const bookingHistory = useSelector((state) => state.user.user.booking);
   const navigation = useNavigation();
   function SignIn() {
     return navigation.navigate("SignIn");
   }
   return (
-    <View style={styles.screen}>
-      {user.loggedIn ? (
-        <>
-          <View style={styles.imageContainer}>
-            <Image
-              source={require('../../../assets/akun.png')}
-              style={styles.image}
-            />
-          </View>
-          <View >
-            <Text style={styles.headerText}>{user.name}</Text>
-          </View>
-          <View>
-            <Text style={styles.textStyle}>{user.email}</Text>
-          </View>
-          <View style={styles.container}>
-            <Ionicons name="location" size={30} />
-            <Text style={styles.textStyle}>{user.country}</Text>
-          </View>
+    <ScrollView>
+      <View style={styles.screen}>
+        {user.loggedIn ? (
+          <>
+            <View style={styles.imageContainer}>
+              <Image
+                source={require('../../../assets/akun.png')}
+                style={styles.image}
+              />
+            </View>
+            <View >
+              <Text style={styles.headerText}>{user.name}</Text>
+            </View>
+            <View>
+              <Text style={styles.textStyle}>{user.email}</Text>
+            </View>
+            <View style={styles.container}>
+              <Ionicons name="location" size={30} />
+              <Text style={styles.textStyle}>{user.country}</Text>
+            </View>
 
-        </>
-      ) : (
-        <Button
-          textButton="Sign In"
-          onPress={SignIn}
-        />
-      )
-      }
-    </View>
+          </>
+        ) : (
+          <Button
+            textButton="Sign In"
+            onPress={SignIn}
+          />
+        )
+        }
+        {user.loggedIn ? (
+          bookingHistory.map((hotel, index) => (
+            <CardLarge key={index} hotel={hotel.hotel} />
+          ))
+        ) : (
+          <></>
+        )}
+      </View>
+    </ScrollView>
   )
 };
 const styles = StyleSheet.create({

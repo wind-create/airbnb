@@ -5,13 +5,13 @@ const styles = StyleSheet.create({
         width: 190,
         height: 65,
         borderRadius: 50,
-        backgroundColor: "white",
+        backgroundColor: "#FF5A5F",
         justifyContent: "center",
         alignItems: "center",
         marginTop: 50
     },
     buttonText: {
-        color: "#F35960",
+        color: "#ffffff",
         fontSize: 24
     },
 });

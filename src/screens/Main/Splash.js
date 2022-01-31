@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Gap from '../../components/atom/gap'
 import { StyleSheet, View, Image } from "react-native";
+import FontAwesome5Brands from 'react-native-vector-icons/FontAwesome5';
 
 function Splash({ navigation }) {
 
@@ -11,7 +12,7 @@ function Splash({ navigation }) {
     }, [navigation]);
     return (
         <View style={styles.container}>
-            <Image style={styles.logo} source={require('../../../assets/airbnbwhite.png')} />
+            <FontAwesome5Brands name='airbnb' size={160} />
             <Gap height={10} />
         </View>
     )
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#F35960",
+        backgroundColor: "#5affa8",
     },
     logo: {
         width: 130,

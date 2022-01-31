@@ -3,6 +3,7 @@ import { Text, TextInput, View, TouchableOpacity, StyleSheet, Image, Alert } fro
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
+import FontAwesome5Brands from 'react-native-vector-icons/FontAwesome5';
 import { LogIn } from "../../../redux/User";
 import Button from "../../atom/button";
 import styles from './styles';
@@ -30,16 +31,16 @@ const Login = () => {
     return (
         <KeyboardAwareScrollView contentContainerStyle={styles.container}>
             <View style={styles.wrapper}>
-                <Image style={styles.logo} source={require('../../../../assets/airbnbwhite.png')} />
+                <FontAwesome5Brands name='airbnb' size={160} />
                 <Text style={styles.title}>Login</Text>
                 <TextInput placeholder="Email"
-                    placeholderTextColor="#E1E1E1"
+                    placeholderTextColor="#000000"
                     keyboardType={"email-address"}
                     style={styles.textInput}
                     onChangeText={email => setEmail(email)}
                 />
                 <TextInput placeholder="Password"
-                    placeholderTextColor="#E1E1E1"
+                    placeholderTextColor="#000000"
                     secureTextEntry={secure}
                     style={styles.textInput}
                     onChangeText={password => setPassword(password)}
