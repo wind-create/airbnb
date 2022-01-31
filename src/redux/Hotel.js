@@ -22,13 +22,7 @@ export const fetchDataHotel = createAsyncThunk(
 export const Hotel = createSlice({
     name: "hotel",
     initialState: {
-        data: null,
-        searchTextValue: "",
-    },
-    reducers: {
-        setSearchValue: (state, action) => {
-            state.searchTextValue = action.payload;
-        },
+        data: null
     },
     extraReducers: {
         [fetchDataHotel.fulfilled]: (state, action) => {
