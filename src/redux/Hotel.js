@@ -32,6 +32,5 @@ export const Hotel = createSlice({
     }
 })
 
-export const { setSearchValue } = Hotel.actions;
 
 export default Hotel.reducer;

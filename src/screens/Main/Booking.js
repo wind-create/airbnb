@@ -17,7 +17,6 @@ const Booking = ({ route, navigation }) => {
 
     const { hotel } = route.params;
     const dispatch = useDispatch();
-    const user = useSelector((state) => state.user.user);
     const [checkin, setCheckin] = useState(new Date());
     const [checkout, setCheckout] = useState(new Date());
     const [showCheckin, setShowCheckin] = useState(false);
